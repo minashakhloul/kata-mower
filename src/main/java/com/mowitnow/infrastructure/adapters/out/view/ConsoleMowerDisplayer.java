@@ -6,12 +6,16 @@ import com.mowitnow.domain.mower.Mower;
 public class ConsoleMowerDisplayer implements MowerDisplayer {
     @Override
     public String display(Mower mower) {
-        return new StringBuilder()
+        String result = new StringBuilder()
                 .append(mower.getCoordinate().getX())
                 .append(" ")
                 .append(mower.getCoordinate().getY())
                 .append(" ")
                 .append(mower.getOrientation().name())
+                .append(" ")
                 .toString();
+
+        System.out.println(result);
+        return result;
     }
 }

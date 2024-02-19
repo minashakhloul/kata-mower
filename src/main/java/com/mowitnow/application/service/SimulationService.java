@@ -2,6 +2,7 @@ package com.mowitnow.application.service;
 
 import com.mowitnow.application.port.in.CreateSimulationUseCase;
 import com.mowitnow.application.port.in.LaunchSimulationUseCase;
+import com.mowitnow.application.port.out.view.MowerDisplayer;
 import com.mowitnow.application.service.impl.MowerServiceImpl;
 import com.mowitnow.application.validator.DataValidator;
 import com.mowitnow.domain.lawn.Lawn;
@@ -13,16 +14,14 @@ import com.mowitnow.infrastructure.adapters.out.view.ConsoleMowerDisplayer;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static java.util.stream.Collectors.joining;
-
 public class SimulationService implements CreateSimulationUseCase, LaunchSimulationUseCase {
     private final MowerService mowerService;
-    private final ConsoleMowerDisplayer consoleMowerDisplayer;
+    private final MowerDisplayer mowerDisplayer;
 
-    public SimulationService(MowerServiceImpl mowerServiceImpl,
-                             ConsoleMowerDisplayer consoleMowerDisplayer) {
+    public SimulationService(MowerService mowerServiceImpl,
+                             MowerDisplayer consoleMowerDisplayer) {
         this.mowerService = mowerServiceImpl;
-        this.consoleMowerDisplayer = consoleMowerDisplayer;
+        this.mowerDisplayer = consoleMowerDisplayer;
     }
 
     @Override
@@ -38,12 +37,9 @@ public class SimulationService implements CreateSimulationUseCase, LaunchSimulat
 
     @Override
     public void launch(Simulation simulation, Lawn lawn) {
-        String result = simulation.getMowersAndInstructions()
-                .entrySet()
-                .stream()
-                .map(entry -> consoleMowerDisplayer.display(mowerService.applyInstructions(lawn, entry.getKey(), entry.getValue())))
-                .collect(joining(" "));
-        System.out.println(result);
+        simulation.getMowersAndInstructions()
+                .forEach((key, value) ->
+                        mowerDisplayer.display(mowerService.applyInstructions(lawn, key, value)));
     }
 
     private Simulation generateSimulation(List<String> subList) {
