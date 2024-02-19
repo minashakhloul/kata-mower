@@ -1,4 +1,4 @@
-package com.mowitnow.domain.entities;
+package com.mowitnow.domain.coordinate;
 
 import lombok.Builder;
 import lombok.Getter;

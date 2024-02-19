@@ -1,4 +1,4 @@
-package com.mowitnow.application.simulation.validator;
+package com.mowitnow.application.validator;
 
 import java.util.List;
 import java.util.function.Predicate;

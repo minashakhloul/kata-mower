@@ -1,5 +1,6 @@
-package com.mowitnow.domain.entities;
+package com.mowitnow.domain.lawn;
 
+import com.mowitnow.domain.coordinate.Coordinate;
 import lombok.Builder;
 import lombok.Getter;
 
