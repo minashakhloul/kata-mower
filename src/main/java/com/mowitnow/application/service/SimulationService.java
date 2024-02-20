@@ -3,13 +3,11 @@ package com.mowitnow.application.service;
 import com.mowitnow.application.port.in.CreateSimulationUseCase;
 import com.mowitnow.application.port.in.LaunchSimulationUseCase;
 import com.mowitnow.application.port.out.view.MowerDisplayer;
-import com.mowitnow.application.service.impl.MowerServiceImpl;
 import com.mowitnow.application.validator.DataValidator;
 import com.mowitnow.domain.lawn.Lawn;
 import com.mowitnow.domain.mower.Mower;
 import com.mowitnow.domain.mower.Pivot;
 import com.mowitnow.domain.simulation.Simulation;
-import com.mowitnow.infrastructure.adapters.out.view.ConsoleMowerDisplayer;
 
 import java.util.*;
 import java.util.stream.Collectors;

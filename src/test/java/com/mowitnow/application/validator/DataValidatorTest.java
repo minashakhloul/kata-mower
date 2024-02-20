@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-public class DataValidatorTest {
+class DataValidatorTest {
     @Test
-    public void should_validate_input_data() {
+    void should_validate_input_data() {
         List<String> lines = List.of(
                 "5 5 ",
                 "1 2 N ",
@@ -18,7 +18,7 @@ public class DataValidatorTest {
     }
 
     @Test
-    public void should_throw_exception_when_first_line_wrong() {
+    void should_throw_exception_when_first_line_wrong() {
         List<String> lines = List.of(
                 "5 5R ",
                 "1 2 N ",
@@ -28,7 +28,7 @@ public class DataValidatorTest {
     }
 
     @Test
-    public void should_throw_exception_when_mower_line_wrong() {
+    void should_throw_exception_when_mower_line_wrong() {
         List<String> lines = List.of(
                 "5 5 ",
                 "1 2F N ",
@@ -38,7 +38,7 @@ public class DataValidatorTest {
     }
 
     @Test
-    public void should_throw_exception_when_instruction_line_wrong() {
+    void should_throw_exception_when_instruction_line_wrong() {
         List<String> lines = List.of(
                 "5 5 ",
                 "1 2 N ",
@@ -48,7 +48,8 @@ public class DataValidatorTest {
     }
 
     @Test
-    public void should_throw_exception_when_file_is_empty() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> DataValidator.isValid(List.of()));
+    void should_throw_exception_when_file_is_empty() {
+        List<String> lines = List.of();
+        Assertions.assertThrows(IllegalArgumentException.class, () -> DataValidator.isValid(lines));
     }
 }

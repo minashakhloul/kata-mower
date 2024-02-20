@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-public class MowerServiceTest {
+class MowerServiceTest {
     MowerService mowerService;
 
     @BeforeEach
@@ -21,7 +21,7 @@ public class MowerServiceTest {
     }
 
     @Test
-    public void should_create_mower_from_input_data() {
+    void should_create_mower_from_input_data() {
         String input = "1 2 N";
         Mower mower = mowerService.create(input);
         Assertions.assertNotNull(mower);
@@ -31,7 +31,7 @@ public class MowerServiceTest {
     }
 
     @Test
-    public void should_apply_instructions_left_forward_from_input_data() {
+    void should_apply_instructions_left_forward_from_input_data() {
         Mower mower = Mower.builder()
                 .coordinate(Coordinate.builder()
                         .x(1)
@@ -61,7 +61,7 @@ public class MowerServiceTest {
     }
 
     @Test
-    public void should_apply_instructions_right_forward_from_input_data() {
+    void should_apply_instructions_right_forward_from_input_data() {
         Mower mower = Mower.builder()
                 .coordinate(Coordinate.builder()
                         .x(3)

@@ -8,10 +8,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 
-public class ConsoleMowerDisplayerTest {
+class ConsoleMowerDisplayerTest {
 
     @Test
-    public void should_print_valid_mower_output_format() {
+    void should_print_valid_mower_output_format() {
         Mower mower = Mower.builder()
                 .coordinate(Coordinate.builder()
                         .x(1)

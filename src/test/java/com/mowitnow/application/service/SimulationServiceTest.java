@@ -19,7 +19,7 @@ import java.io.PrintStream;
 import java.util.Iterator;
 import java.util.List;
 
-public class SimulationServiceTest {
+class SimulationServiceTest {
     CreateSimulationUseCase createSimulationUseCase;
     LaunchSimulationUseCase launchSimulationUseCase;
 
@@ -31,7 +31,7 @@ public class SimulationServiceTest {
     }
 
     @Test
-    public void should_create_simulation_from_input_data() {
+    void should_create_simulation_from_input_data() {
         List<String> lines = List.of(
                 "5 5 ",
                 "1 2 N ",
@@ -64,7 +64,7 @@ public class SimulationServiceTest {
     }
 
     @Test
-    public void should_launch_simulation_correctly(){
+    void should_launch_simulation_correctly() {
         List<String> lines = List.of(
                 "5 5 ",
                 "1 2 N ",
