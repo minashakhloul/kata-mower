@@ -35,7 +35,7 @@ class MowerIntegrationTest {
     }
 
     @Test
-    void run_empty_global_test_case() throws URISyntaxException {
+    void run_empty_global_test_case() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> simulationFileAdapter.simulate("input-empty.txt"));
     }
 }
