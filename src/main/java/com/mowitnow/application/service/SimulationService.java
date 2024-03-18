@@ -54,9 +54,9 @@ public class SimulationService implements CreateSimulationUseCase, LaunchSimulat
         return Simulation.builder().mowersAndInstructions(mowerInstructionMap).build();
     }
 
-    private Collection<Pivot> createInstruction(String instructionLine) {
+    private List<Pivot> createInstruction(String instructionLine) {
         return Arrays.stream(instructionLine.split(""))
                 .map(Pivot::getFromChar)
-                .collect(Collectors.toList());
+                .toList();
     }
 }
